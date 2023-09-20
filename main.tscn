@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1x03t1y7eugv"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_6b5vy"]
+[ext_resource type="PackedScene" uid="uid://brbjpn24wwhnh" path="res://wall/parallax_background.tscn" id="2_q4nvs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cmanw"]
+font_size = 64
+font_color = Color(0, 0, 0, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_6b5vy")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 523.0
+offset_top = 199.0
+offset_right = 658.0
+offset_bottom = 286.0
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 522.0
+offset_top = 314.0
+offset_right = 660.0
+offset_bottom = 398.0
+text = "Quit"
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_q4nvs")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 677.0
+offset_top = 253.0
+offset_right = 949.0
+offset_bottom = 359.0
+label_settings = SubResource("LabelSettings_cmanw")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

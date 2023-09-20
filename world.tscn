@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://drsvlkb25k15b"]
+
+[ext_resource type="PackedScene" uid="uid://0sn0eh505hu6" path="res://player/player.tscn" id="1_grol8"]
+[ext_resource type="Script" path="res://world.gd" id="1_rip0b"]
+[ext_resource type="PackedScene" uid="uid://dqjc758av38ye" path="res://wall/wall.tscn" id="2_jluxa"]
+[ext_resource type="Script" path="res://label.gd" id="3_iibct"]
+[ext_resource type="PackedScene" uid="uid://dyissvogocr44" path="res://addons/joystick/joystick.tscn" id="5_5pg35"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y15yn"]
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frj40"]
+size = Vector2(1178, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lywk8"]
+size = Vector2(44.5, 678)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1uq6"]
+size = Vector2(1152.25, 45)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i212p"]
+size = Vector2(18, 696.25)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_rip0b")
+
+[node name="Player" parent="." instance=ExtResource("1_grol8")]
+position = Vector2(488, 274)
+
+[node name="Wall" parent="." instance=ExtResource("2_jluxa")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 34.0
+offset_top = 19.0
+offset_right = 132.0
+offset_bottom = 62.0
+label_settings = SubResource("LabelSettings_y15yn")
+script = ExtResource("3_iibct")
+
+[node name="Joystick" type="CanvasLayer" parent="."]
+
+[node name="Actual Joystick" parent="Joystick" instance=ExtResource("5_5pg35")]
+position = Vector2(129, 476)
+shape_centered = false
+
+[node name="Boundaryss" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Boundaryss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaryss/StaticBody2D"]
+position = Vector2(589, -10)
+shape = SubResource("RectangleShape2D_frj40")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Boundaryss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaryss/StaticBody2D2"]
+position = Vector2(1174.75, 339)
+shape = SubResource("RectangleShape2D_lywk8")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Boundaryss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaryss/StaticBody2D3"]
+position = Vector2(576.125, 670.5)
+shape = SubResource("RectangleShape2D_m1uq6")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Boundaryss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaryss/StaticBody2D4"]
+position = Vector2(-7, 332.125)
+shape = SubResource("RectangleShape2D_i212p")
+
+[connection signal="died" from="Wall" to="." method="_on_wall_died"]
+[connection signal="joystick_input" from="Joystick/Actual Joystick" to="Player" method="_on_actual_joystick_joystick_input"]

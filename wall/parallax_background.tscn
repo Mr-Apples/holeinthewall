@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://brbjpn24wwhnh"]
+
+[ext_resource type="Script" path="res://wall/parallax_background.gd" id="1_eryx8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7n6t0"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+script = ExtResource("1_eryx8")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Label" type="Label" parent="ParallaxLayer"]
+offset_left = 630.0
+offset_top = 13.0
+offset_right = 1255.0
+offset_bottom = 85.0
+rotation = 1.5715
+text = "Hole In                   The Wall"
+label_settings = SubResource("LabelSettings_7n6t0")

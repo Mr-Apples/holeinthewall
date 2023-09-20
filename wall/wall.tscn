@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqjc758av38ye"]
+
+[ext_resource type="Script" path="res://wall/wall.gd" id="1_6b4mn"]
+[ext_resource type="Texture2D" uid="uid://cx17rhap8aubf" path="res://wall/wall.png" id="1_m6llc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw5m1"]
+size = Vector2(20.25, 874.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjctm"]
+size = Vector2(19, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s4hx"]
+size = Vector2(20.5, 874.5)
+
+[node name="Wall" type="Node2D"]
+script = ExtResource("1_6b4mn")
+
+[node name="Top Wall" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Top Wall"]
+position = Vector2(0, 491.5)
+scale = Vector2(1, 0.965784)
+texture = ExtResource("1_m6llc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top Wall"]
+position = Vector2(0.875, -491.375)
+shape = SubResource("RectangleShape2D_qw5m1")
+
+[node name="Hole" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hole"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kjctm")
+
+[node name="Bottom Wall" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom Wall"]
+position = Vector2(0, 491.25)
+shape = SubResource("RectangleShape2D_5s4hx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bottom Wall"]
+position = Vector2(1, -501)
+scale = Vector2(1, 0.986755)
+texture = ExtResource("1_m6llc")
+
+[connection signal="body_entered" from="Top Wall" to="." method="_on_wall_body_entered"]
+[connection signal="body_entered" from="Hole" to="." method="_on_hole_body_entered"]
+[connection signal="body_entered" from="Bottom Wall" to="." method="_on_wall_body_entered"]
