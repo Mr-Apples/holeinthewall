@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 GlobalVars="*res://global_vars.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [input]
 
 player_up={

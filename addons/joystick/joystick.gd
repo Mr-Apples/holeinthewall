@@ -27,8 +27,11 @@ func _ready():
 	if shape is CircleShape2D:
 		radius = shape.radius
 	if OS.get_name() != "Android":
-		visible = false
+		self.visible = false
 		self.set_process(false)
+	else:
+		self.visible = true
+		self.set_process(true)
 
 func _input(event):
 	if not event is InputEventScreenTouch and not event is InputEventScreenDrag: # Not a touch

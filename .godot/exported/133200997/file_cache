@@ -1,0 +1,6 @@
+res://addons/joystick/joystick.tscn::048863ec331273b9897c67e6c9130275::1695251959::res://.godot/exported/133200997/export-d84b849525a8f30d2ab82c29c8d9a50e-joystick.scn
+res://player/player.tscn::9f74d3ea0fbec4eb01bd0dc014de1bb2::1695898796::res://.godot/exported/133200997/export-753d15e03e0182f9d550ac833b42bb41-player.scn
+res://wall/parallax_background.tscn::dd747da43de982434165ff96bac51a2c::1695251959::res://.godot/exported/133200997/export-f0c9832f4032c5e31ddc4b22532b44e2-parallax_background.scn
+res://wall/wall.tscn::ac1b28a6be38eae24e0450a8e27eb0db::1695898796::res://.godot/exported/133200997/export-15d0587e733c4bb9e4a5c6f003546306-wall.scn
+res://main.tscn::b8ed6ae66b8f17d076b44b7d2d5a7e43::1695898796::res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn
+res://world.tscn::1f4dcde32b3380af95b7ba6167e2a217::1695898796::res://.godot/exported/133200997/export-76e0adcbc83681695885bae615f516ae-world.scn
